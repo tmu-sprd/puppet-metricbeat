@@ -8,7 +8,7 @@ class metricbeat::params {
   $ensure             = 'present'
   $cloud_id           = undef
   $cloud_auth         = undef
-  $beat_name          = $::hostname
+  $beat_name          = $::fqdn
   $config_mode        = '0600'
   $disable_configtest = false
   $download_url       = undef
