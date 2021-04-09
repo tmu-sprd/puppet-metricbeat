@@ -197,6 +197,7 @@ class metricbeat(
   String $tmp_dir                                                     = $metricbeat::params::tmp_dir,
   Optional[String] $url_arch                                          = $metricbeat::params::url_arch,
   Optional[Hash] $xpack                                               = $metricbeat::params::xpack,
+  Optional[Hash] $monitoring                                          = $metricbeat::params::monitoring,
   Optional[Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl]] $yum_repo_url  = $metricbeat::params::yum_repo_url,
   Hash    $setup                                                      = {},
 ) inherits metricbeat::params {

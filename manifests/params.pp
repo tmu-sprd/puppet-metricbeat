@@ -36,6 +36,7 @@ class metricbeat::params {
   $service_has_restart = true
   $tags                = undef
   $xpack               = undef
+  $monitoring          = undef
   $apt_repo_url        = undef
   $yum_repo_url        = undef
 
