@@ -67,9 +67,9 @@ class metricbeat::config inherits metricbeat {
       $metricbeat_config_temp = $metricbeat_config_base
     }
 
-    # Add the 'xpack' section if supported (version >= 6.2.0)
+    # Add the 'monitoring' section if supported (version >= 6.2.0)
     if versioncmp($metricbeat::package_ensure, '6.2.0') >= 0 {
-      $metricbeat_config = deep_merge($metricbeat_config_temp, {'xpack' => $metricbeat::xpack})
+      $metricbeat_config = deep_merge($metricbeat_config_temp, {'monitoring' => $metricbeat::monitoring})
     }
     else {
       $metricbeat_config = $metricbeat_config_temp
