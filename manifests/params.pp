@@ -8,7 +8,7 @@ class metricbeat::params {
   $ensure             = 'present'
   $cloud_id           = undef
   $cloud_auth         = undef
-  $beat_name          = $::fqdn
+  $beat_name          = $facts['networking']['fqdn']
   $config_mode        = '0600'
   $disable_configtest = false
   $download_url       = undef
@@ -61,7 +61,7 @@ class metricbeat::params {
         'to_syslog' => false,
       }
       $package_ensure   = 'present'
-      $service_provider = $::osfamily ? {
+      $service_provider = $facts['os']['family'] ? {
         'RedHat' => 'redhat',
         default  => undef,
       }
@@ -90,10 +90,10 @@ class metricbeat::params {
       $package_ensure   = '6.6.1'
       $service_provider = undef
       $tmp_dir          = 'C:/Windows/Temp'
-      $url_arch         = $::architecture ? {
+      $url_arch         = $facts['os']['architecture'] ? {
         'x86'   => 'x86',
         'x64'   => 'x86_64',
-        default => fail("${::architecture} is not supported by metricbeat."),
+        default => fail("${facts['os']['architecture']} is not supported by metricbeat."),
       }
     }
     default: {
